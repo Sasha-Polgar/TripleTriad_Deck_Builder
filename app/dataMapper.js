@@ -11,6 +11,12 @@ const dataMapper = {
     const query = `SELECT * FROM card WHERE id = $1 `;
     const result = await database.query(query, [cardId]);
     return result.rows[0];
+  },
+
+  async searchByElement(searchedElement) {
+    const query = `SELECT * FROM card GROUP BY $1`;
+    const result = await database.query(query, [searchedElement]);
+    return result.rows;
   }
 
 };

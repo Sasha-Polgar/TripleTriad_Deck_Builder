@@ -27,6 +27,10 @@ const mainController = {
       console.error(error);
       res.status(500).send(`An error occured with the database :\n${error.message}`);
     }
+  },
+
+  researchedPage: async (req, res) => {
+    
   }
 
 };
