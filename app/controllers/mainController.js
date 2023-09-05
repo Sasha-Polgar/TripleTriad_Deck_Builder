@@ -29,10 +29,26 @@ const mainController = {
     }
   },
 
-  researchedPage: async (req, res) => {
-    
-  }
+  addToDeck: async (req, res) => {
+    const cardId = parseInt(req.params.id);
+    console.log(req.session)
+    if(!req.session.deck){
+      req.session.deck = []
+      console.log(req.session.deck)
+    }
+    const checkCard = req.session.deck.find(card => card.id === cardId);
+    if(!checkCard && req.session.deck.length < 5) { // TODO ajouter si deck <5
+      const card = await dataMapper.getCard(cardId);
+      req.session.deck.push(card);
+      console.log(req.session.deck);
+      res.redirect('/deck');
+    }
+    else {
+      res.redirect('/deck');
+    }
 
+  }
+ 
 };
 
 module.exports = mainController;
