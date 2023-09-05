@@ -1,19 +1,15 @@
 <%- include('header') %>
 
-<h1><%= title %></h1>
+<h1>Détails sur: <%= card.name %> [niv <%=card.level%>]</h1>
 
 <div class="cardsContainer">
-  <% cards.forEach( (card) => { %>
 
     <div class="card">
-      <a href="/card/<%= card.id%>">
         <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
         <p class="cardName"><%= card.name %></p>
-      </a>
       <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
     </div>
 
-  <% }) %>
 </div>
 
 

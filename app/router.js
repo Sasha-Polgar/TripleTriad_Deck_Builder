@@ -7,6 +7,7 @@ const searchController = require('./controllers/searchController');
 
 router.get('/', mainController.homePage);
 router.get('/search', searchController.searchPage);
+router.get('/card/:id', mainController.cardPage);
 
 
 module.exports = router;

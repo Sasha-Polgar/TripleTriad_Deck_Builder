@@ -12,7 +12,23 @@ const mainController = {
       console.error(error);
       res.status(500).send(`An error occured with the database :\n${error.message}`);
     }
+  },
+
+  cardPage: async (req, res) => {
+    const cardId = parseInt(req.params.id);
+    if(isNaN(cardId)) {return next()};
+
+    try{
+      card = await dataMapper.getCard(cardId);
+      res.render('cardPage', {card});
+    }
+
+    catch {
+      console.error(error);
+      res.status(500).send(`An error occured with the database :\n${error.message}`);
+    }
   }
+
 };
 
 module.exports = mainController;
