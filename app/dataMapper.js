@@ -14,18 +14,19 @@ const dataMapper = {
   },
 
   async searchByElement(searchedElement) {
-    if(searchedElement = 'null'){
-      const query = `SELECT * FROM card WHERE element IS NULL`;
-      const result = await database.query(query);
+
+    if(searchedElement === 'null'){
+    const query = `SELECT * FROM card WHERE element IS NULL`;
+    const result = await database.query(query);
+    console.log(result.rows)
+    return result.rows;
+    }
+    else {
+      const query = `SELECT * FROM card WHERE element = $1`;
+      const result = await database.query(query, [searchedElement]);
+      console.log(result.rows)
       return result.rows;
     }
-    else{
-      query = `SELECT * FROM card WHERE element = $1`;
-      result = await database.query(query, [searchedElement]);
-      return result.rows;
-
-    }
-
   }
 
 };
