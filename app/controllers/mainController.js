@@ -29,25 +29,29 @@ const mainController = {
     }
   },
 
-  addToDeck: async (req, res) => {
-    const cardId = parseInt(req.params.id);
-    console.log(req.session)
+  deckPage: (req, res) => {
     if(!req.session.deck){
       req.session.deck = []
-      console.log(req.session.deck)
+    }
+    res.render('deckPage', {deck: req.session.deck})
+  },
+  addToDeck: async (req, res) => {
+    const cardId = parseInt(req.params.id);
+    if(!req.session.deck){
+      req.session.deck = []
     }
     const checkCard = req.session.deck.find(card => card.id === cardId);
-    if(!checkCard && req.session.deck.length < 5) { // TODO ajouter si deck <5
+    if(!checkCard && req.session.deck.length < 5) { 
       const card = await dataMapper.getCard(cardId);
       req.session.deck.push(card);
-      console.log(req.session.deck);
       res.redirect('/deck');
     }
     else {
       res.redirect('/deck');
     }
 
-  }
+  },
+
  
 };
 
