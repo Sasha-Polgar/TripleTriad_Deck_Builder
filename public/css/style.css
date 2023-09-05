@@ -74,6 +74,15 @@
   text-decoration: none;
 }
 
+.card .link--removeCard {
+  position: absolute;
+  top: 6%;
+  right: 40%;
+  color: red;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 
 .footer {
   text-align: center;

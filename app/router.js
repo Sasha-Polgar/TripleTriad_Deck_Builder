@@ -10,6 +10,7 @@ router.get('/search', searchController.searchPage);
 router.get('/card/:id', mainController.cardPage);
 router.get('/deck', mainController.deckPage);
 router.get('/deck/:id', mainController.addToDeck);
+router.get('/deck/remove/:id', mainController.removeFromDeck);
 
 
 module.exports = router;

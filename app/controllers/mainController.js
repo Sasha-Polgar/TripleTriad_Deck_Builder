@@ -52,7 +52,12 @@ const mainController = {
 
   },
 
- 
+  removeFromDeck: (req, res) => {
+    const cardId = parseInt(req.params.id);
+    req.session.deck = req.session.deck.filter(card => card.id != cardId);
+    res.redirect('/deck');
+  }
+
 };
 
 module.exports = mainController;
