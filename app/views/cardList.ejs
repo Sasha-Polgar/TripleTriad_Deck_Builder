@@ -8,7 +8,7 @@
     <div class="card">
       <a href="/card/<%= card.id%>">
         <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
-        <p class="cardName"><%= card.name %></p>
+        <p class="cardName"><%= card.name %> [<%=card.level%>]</p>
       </a>
       <a class="link--addCard" title="Ajouter au deck" href="/deck/<%=card.id%>">[ + ]</a>
     </div>

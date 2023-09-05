@@ -7,7 +7,8 @@ const searchController = require('./controllers/searchController');
 
 router.get('/', mainController.homePage);
 router.get('/search', searchController.searchPage);
-router.get('/search/element', searchController.researchedPage);
+router.get('/search/element', searchController.researchedPageByElement);
+router.get('/search/level', searchController.researchedPageByLevel);
 router.get('/card/:id', mainController.cardPage);
 router.get('/deck', mainController.deckPage);
 router.get('/deck/:id', mainController.addToDeck);

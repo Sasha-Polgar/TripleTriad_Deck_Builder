@@ -5,10 +5,17 @@ const searchController = {
     res.render('search');
   },
 
-  researchedPage: async (req,res) => {
+  researchedPageByElement: async (req,res) => {
     const searchedElement = req.query.element;
     console.log(req.query);
     const searchedCard = await dataMapper.searchByElement(searchedElement);
+    res.render('researchedPage', {searchedCard});
+  },
+
+  researchedPageByLevel: async (req, res) => {
+    const searchedLevel = req.query.level;
+    console.log(req.query);
+    const searchedCard = await dataMapper.searchByLevel(searchedLevel);
     res.render('researchedPage', {searchedCard});
   }
 

@@ -27,7 +27,15 @@ const dataMapper = {
       console.log(result.rows)
       return result.rows;
     }
-  }
+  },
+
+  async searchByLevel(searchedLevel) {
+    const query = `SELECT * FROM card WHERE level = $1`;
+    const result = await database.query(query, [searchedLevel]);
+    console.log(result.rows)
+    return result.rows;
+  
+  },
 
 };
 
